@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxkmjxkatwfj8"]
+
+[ext_resource type="PackedScene" uid="uid://bogbmwnl5ug2q" path="res://scenes/level.tscn" id="1_23fkt"]
+[ext_resource type="Texture2D" uid="uid://dpwovuwx3plo3" path="res://assets/sprites/bgs/house.png" id="2_el7gw"]
+[ext_resource type="Script" path="res://scenes/house.gd" id="2_fll7v"]
+[ext_resource type="PackedScene" uid="uid://br22wmksbuen" path="res://scenes/door.tscn" id="3_c6yl6"]
+[ext_resource type="PackedScene" uid="uid://ib58u6egu7dj" path="res://scenes/NPC.tscn" id="4_cga6f"]
+[ext_resource type="PackedScene" uid="uid://q2kan26cyyy2" path="res://scenes/dialog.tscn" id="5_711yt"]
+[ext_resource type="AudioStream" uid="uid://cwupxf6ddji5y" path="res://assets/music/Inside a House - The Legend of Zelda： The Wind Waker [QldhJ67b3tE].mp3" id="7_5kyih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wcxx"]
+size = Vector2(800, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6j0po"]
+size = Vector2(21, 393)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgduh"]
+size = Vector2(17, 386)
+
+[node name="House" instance=ExtResource("1_23fkt")]
+script = ExtResource("2_fll7v")
+
+[node name="ColorRect" type="ColorRect" parent="." index="0"]
+offset_left = 440.0
+offset_top = 128.0
+offset_right = 608.0
+offset_bottom = 288.0
+color = Color(0.568627, 1, 1, 1)
+
+[node name="TextureRect" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_el7gw")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+position = Vector2(400, 300)
+
+[node name="Player" parent="." index="3"]
+position = Vector2(544, 328)
+
+[node name="Camera2D" parent="Player" index="3"]
+visible = false
+enabled = false
+
+[node name="collisions" type="StaticBody2D" parent="." index="4"]
+
+[node name="floor" type="CollisionShape2D" parent="collisions" index="0"]
+position = Vector2(400, 488)
+shape = SubResource("RectangleShape2D_5wcxx")
+
+[node name="wall1" type="CollisionShape2D" parent="collisions" index="1"]
+position = Vector2(-5.5, 187.5)
+shape = SubResource("RectangleShape2D_6j0po")
+
+[node name="wall2" type="CollisionShape2D" parent="collisions" index="2"]
+position = Vector2(807.5, 191)
+shape = SubResource("RectangleShape2D_hgduh")
+
+[node name="Door" parent="." index="5" instance=ExtResource("3_c6yl6")]
+position = Vector2(768, 304)
+level_file = "res://scenes/menu.tscn"
+should_sound = true
+
+[node name="NPC" parent="." index="6" node_paths=PackedStringArray("dialog") instance=ExtResource("4_cga6f")]
+process_priority = 1
+position = Vector2(144, 328)
+dialog = NodePath("Dialog")
+
+[node name="Dialog" parent="NPC" index="3" instance=ExtResource("5_711yt")]
+dialog_file = "res://scripts/dialog.json"
+NPC_name = "computer"
+
+[node name="NPC2" parent="." index="7" node_paths=PackedStringArray("dialog") instance=ExtResource("4_cga6f")]
+position = Vector2(352, 312)
+dialog = NodePath("Dialog")
+
+[node name="Dialog" parent="NPC2" index="3" instance=ExtResource("5_711yt")]
+dialog_file = "res://scripts/dialog.json"
+NPC_name = "bookshelf"
+
+[node name="music" type="AudioStreamPlayer" parent="NPC2" index="4"]
+stream = ExtResource("7_5kyih")
+volume_db = -3.0
+autoplay = true
+
+[node name="fade" type="ColorRect" parent="." index="8"]
+modulate = Color(0, 0, 0, 0)
+offset_right = 840.0
+offset_bottom = 640.0
+metadata/_edit_lock_ = true
+
+[connection signal="door_opened" from="Door" to="." method="_on_door_door_opened"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ib58u6egu7dj"]
+
+[ext_resource type="Script" path="res://scripts/NPC.gd" id="1_we12w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xu7n"]
+radius = 80.0
+
+[node name="NPC" type="Area2D"]
+script = ExtResource("1_we12w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.3, 1)
+shape = SubResource("CircleShape2D_5xu7n")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -45.0
+offset_top = -116.0
+offset_right = 46.0
+offset_bottom = -90.0
+text = "press space"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

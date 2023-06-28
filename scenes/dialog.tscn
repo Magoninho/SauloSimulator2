@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://q2kan26cyyy2"]
+
+[ext_resource type="Script" path="res://scripts/Dialog.gd" id="1_mrb6u"]
+[ext_resource type="AudioStream" uid="uid://ckt1pvss5i5p5" path="res://assets/click (2).wav" id="2_4jsgt"]
+
+[node name="Dialog" type="CanvasLayer"]
+script = ExtResource("1_mrb6u")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 64.0
+offset_top = 416.0
+offset_right = 704.0
+offset_bottom = 577.0
+
+[node name="Message" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 10.0
+offset_right = 609.0
+offset_bottom = 150.0
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Delay" type="Timer" parent="."]
+
+[node name="speak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4jsgt")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://vnlnxf7dn402"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_ro4c7"]
+[ext_resource type="Texture2D" uid="uid://djq5rsotutysl" path="res://assets/sprites/saulo.png" id="2_3pjc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw27x"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2k3sr"]
+radius = 72.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ro4c7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 9.53674e-07)
+scale = Vector2(1.13676, 1.13676)
+texture = ExtResource("2_3pjc2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_pw27x")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_2k3sr")
+debug_color = Color(0.92549, 0, 0.682353, 0.419608)

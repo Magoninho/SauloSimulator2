@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://dprf6os7odx"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_qqyy3"]
+[ext_resource type="Texture2D" uid="uid://bill0claxhnlb" path="res://assets/download.jpeg" id="1_rgtpf"]
+[ext_resource type="Texture2D" uid="uid://bcbu5v7pmybs4" path="res://assets/SAULO-SIMULATOR.png" id="2_cf8na"]
+[ext_resource type="Script" path="res://scenes/Sprite2D2.gd" id="3_7sih0"]
+[ext_resource type="AudioStream" uid="uid://btutk6wh0wjno" path="res://assets/music/believer.mp3" id="4_eewjq"]
+
+[sub_resource type="Animation" id="Animation_r3yc8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8.00003, -136)]
+}
+
+[sub_resource type="Animation" id="Animation_n4cpu"]
+resource_name = "down"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8.00003, -136), Vector2(8, 104), Vector2(8, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ysrf4"]
+_data = {
+"RESET": SubResource("Animation_r3yc8"),
+"down": SubResource("Animation_n4cpu")
+}
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qqyy3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.04167, 0.78125)
+texture = ExtResource("1_rgtpf")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(8.00003, -136)
+scale = Vector2(0.751572, 0.751572)
+texture = ExtResource("2_cf8na")
+centered = false
+script = ExtResource("3_7sih0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D2"]
+libraries = {
+"": SubResource("AnimationLibrary_ysrf4")
+}
+
+[node name="UnicampText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 320.0
+offset_right = 488.0
+offset_bottom = 352.0
+text = "UNICAMP"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_eewjq")
+volume_db = -6.0
+autoplay = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 240.0
+offset_right = 184.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 35
+text = "start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
