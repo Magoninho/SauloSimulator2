@@ -1,0 +1,263 @@
+[gd_scene load_steps=25 format=3 uid="uid://bkoepbelgca8p"]
+
+[ext_resource type="Texture2D" uid="uid://bamxpot7fyvt6" path="res://assets/world.png" id="1_0p4s4"]
+[ext_resource type="PackedScene" uid="uid://bogbmwnl5ug2q" path="res://scenes/level.tscn" id="1_d52rb"]
+[ext_resource type="PackedScene" uid="uid://br22wmksbuen" path="res://scenes/door.tscn" id="3_acf1f"]
+[ext_resource type="Texture2D" uid="uid://dxchu15xx8kww" path="res://assets/tzuei.png" id="4_c05h8"]
+[ext_resource type="PackedScene" uid="uid://c0m17bagbnv44" path="res://scenes/sin_platform.tscn" id="4_sx76a"]
+[ext_resource type="AudioStream" uid="uid://cyndmr30cydp7" path="res://assets/music/Dragon Roost Island - The Legend of Zelda： The Wind Waker [QtcgZGp3FGs].mp3" id="5_d6jeb"]
+[ext_resource type="PackedScene" uid="uid://ib58u6egu7dj" path="res://scenes/NPC.tscn" id="7_fj8ry"]
+[ext_resource type="Texture2D" uid="uid://dyujcalcbho3g" path="res://assets/sprites/dudu.png" id="8_wxhl3"]
+[ext_resource type="PackedScene" uid="uid://q2kan26cyyy2" path="res://scenes/dialog.tscn" id="9_kgbw8"]
+[ext_resource type="Texture2D" uid="uid://r376wqyr2525" path="res://assets/sprites/cyrius.png" id="10_gfh6x"]
+[ext_resource type="Texture2D" uid="uid://cericxgrjnkoy" path="res://assets/sprites/luiz.png" id="11_jyubd"]
+[ext_resource type="Texture2D" uid="uid://blq211f7afpfn" path="res://assets/sprites/mago.png" id="12_q6xeg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqjex"]
+size = Vector2(1433, 514)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlrm6"]
+size = Vector2(97, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtk6q"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lke08"]
+size = Vector2(62, 522)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrmxi"]
+size = Vector2(329, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i857e"]
+size = Vector2(746, 154)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imgsv"]
+size = Vector2(129, 162)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87058"]
+size = Vector2(66, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmp34"]
+size = Vector2(320, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmad5"]
+size = Vector2(53, 157)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yupj4"]
+size = Vector2(70.25, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l60ep"]
+size = Vector2(2949, 400)
+
+[node name="TheWorld" instance=ExtResource("1_d52rb")]
+
+[node name="Player" parent="." index="0"]
+z_index = 10
+position = Vector2(96, 464)
+
+[node name="Camera2D" parent="Player" index="3"]
+limit_left = 0
+limit_top = 0
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+offset_right = 5632.0
+offset_bottom = 1024.0
+texture = ExtResource("1_0p4s4")
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="StaticBody2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" index="0"]
+position = Vector2(723.5, 767)
+shape = SubResource("RectangleShape2D_jqjex")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" index="1"]
+position = Vector2(1583, 495)
+shape = SubResource("RectangleShape2D_hlrm6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground" index="2"]
+position = Vector2(1744.5, 431.5)
+shape = SubResource("RectangleShape2D_hlrm6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Ground" index="3"]
+position = Vector2(1968, 432)
+shape = SubResource("RectangleShape2D_hlrm6")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Ground" index="4"]
+position = Vector2(2352, 432)
+shape = SubResource("RectangleShape2D_hlrm6")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Ground" index="5"]
+position = Vector2(2768, 432)
+shape = SubResource("RectangleShape2D_hlrm6")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Ground" index="6"]
+position = Vector2(2928, 368)
+shape = SubResource("RectangleShape2D_xtk6q")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Ground" index="7"]
+position = Vector2(3088, 528)
+shape = SubResource("RectangleShape2D_xtk6q")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Ground" index="8"]
+position = Vector2(3216, 464)
+shape = SubResource("RectangleShape2D_xtk6q")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Ground" index="9"]
+position = Vector2(-24, 248)
+shape = SubResource("RectangleShape2D_lke08")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Ground" index="10"]
+position = Vector2(3491.5, 496)
+shape = SubResource("RectangleShape2D_mrmxi")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Ground" index="11"]
+position = Vector2(4019, 459)
+shape = SubResource("RectangleShape2D_i857e")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Ground" index="12"]
+position = Vector2(4607.5, 463)
+shape = SubResource("RectangleShape2D_imgsv")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Ground" index="13"]
+position = Vector2(4799, 320)
+shape = SubResource("RectangleShape2D_87058")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Ground" index="14"]
+position = Vector2(4928, 256)
+shape = SubResource("RectangleShape2D_87058")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Ground" index="15"]
+position = Vector2(5056, 192)
+shape = SubResource("RectangleShape2D_87058")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Ground" index="16"]
+position = Vector2(5472, 207)
+shape = SubResource("RectangleShape2D_xmp34")
+
+[node name="Door" parent="." index="3" instance=ExtResource("3_acf1f")]
+position = Vector2(8, 440)
+level_file = "res://scenes/house.tscn"
+should_sound = true
+
+[node name="Door2" parent="." index="4" instance=ExtResource("3_acf1f")]
+position = Vector2(5512, 88)
+level_file = "res://scenes/cutscenes/colegio.tscn"
+should_sound = true
+
+[node name="DeadZone" type="Area2D" parent="." index="5"]
+
+[node name="Sprite2D" type="Sprite2D" parent="DeadZone" index="0"]
+position = Vector2(4512, 904)
+scale = Vector2(0.24375, 0.322222)
+texture = ExtResource("4_c05h8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DeadZone" index="1"]
+position = Vector2(5456, 673.5)
+scale = Vector2(0.225, 0.204166)
+texture = ExtResource("4_c05h8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DeadZone" index="2"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeadZone/StaticBody2D" index="0"]
+position = Vector2(3045.5, 233.5)
+shape = SubResource("RectangleShape2D_gmad5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DeadZone/StaticBody2D" index="1"]
+visible = false
+position = Vector2(3112, 246)
+scale = Vector2(0.134375, 0.238889)
+texture = ExtResource("4_c05h8")
+
+[node name="Area2D" type="Area2D" parent="DeadZone/StaticBody2D" index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone/StaticBody2D/Area2D" index="0"]
+position = Vector2(3020.88, 208)
+shape = SubResource("RectangleShape2D_yupj4")
+debug_color = Color(0.858824, 0.301961, 0.517647, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone" index="3"]
+position = Vector2(2853.5, 960)
+shape = SubResource("RectangleShape2D_l60ep")
+debug_color = Color(0.619608, 0.533333, 0, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeadZone" index="4"]
+position = Vector2(6184, 952)
+shape = SubResource("RectangleShape2D_l60ep")
+debug_color = Color(0.619608, 0.533333, 0, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeadZone" index="5"]
+position = Vector2(4936, 1224)
+shape = SubResource("RectangleShape2D_l60ep")
+debug_color = Color(0.619608, 0.533333, 0, 0.419608)
+
+[node name="SinPlatform" parent="." index="6" instance=ExtResource("4_sx76a")]
+position = Vector2(2104, 416)
+color = Color(1, 0, 0, 1)
+
+[node name="SinPlatform2" parent="." index="7" instance=ExtResource("4_sx76a")]
+position = Vector2(2512, 416)
+speed = 0.2
+color = Color(1, 0, 0, 1)
+
+[node name="SinPlatform3" parent="." index="8" instance=ExtResource("4_sx76a")]
+position = Vector2(3296, 232)
+scale = Vector2(0.158, 12.095)
+speed = 0.666
+amplitude = 150
+color = Color(1, 0, 0, 1)
+
+[node name="fade" parent="CanvasLayer" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
+stream = ExtResource("5_d6jeb")
+autoplay = true
+
+[node name="NPC" parent="." index="11" node_paths=PackedStringArray("dialog") instance=ExtResource("7_fj8ry")]
+position = Vector2(368, 464)
+dialog = NodePath("Dialog")
+texture = ExtResource("8_wxhl3")
+
+[node name="Dialog" parent="NPC" index="3" instance=ExtResource("9_kgbw8")]
+dialog_file = "res://scripts/dialog.json"
+NPC_name = "dudu"
+
+[node name="NPC2" parent="." index="12" node_paths=PackedStringArray("dialog") instance=ExtResource("7_fj8ry")]
+position = Vector2(2360, 360)
+scale = Vector2(0.192, 0.192)
+dialog = NodePath("Dialog")
+texture = ExtResource("10_gfh6x")
+
+[node name="Dialog" parent="NPC2" index="3" instance=ExtResource("9_kgbw8")]
+dialog_file = "res://scripts/dialog.json"
+NPC_name = "cyrius"
+
+[node name="NPC3" parent="." index="13" node_paths=PackedStringArray("dialog") instance=ExtResource("7_fj8ry")]
+position = Vector2(3896, 312)
+dialog = NodePath("Dialog")
+
+[node name="Sprite2D2" type="Sprite2D" parent="NPC3" index="3"]
+position = Vector2(-8, 24)
+scale = Vector2(0.1375, 0.1375)
+texture = ExtResource("11_jyubd")
+
+[node name="Dialog" parent="NPC3" index="4" instance=ExtResource("9_kgbw8")]
+dialog_file = "res://scripts/dialog.json"
+NPC_name = "arruda"
+
+[node name="NPC4" parent="." index="14" node_paths=PackedStringArray("dialog") instance=ExtResource("7_fj8ry")]
+position = Vector2(3504, 392)
+scale = Vector2(0.738, 0.738)
+dialog = NodePath("Dialog")
+texture = ExtResource("12_q6xeg")
+
+[node name="Dialog" parent="NPC4" index="3" instance=ExtResource("9_kgbw8")]
+dialog_file = "res://scripts/dialog.json"
+NPC_name = "mago"
+
+[connection signal="door_opened" from="Door" to="." method="_on_door_door_opened"]
+[connection signal="door_opened" from="Door2" to="." method="_on_door_door_opened"]
+[connection signal="body_entered" from="DeadZone" to="Player" method="_on_dead_zone_body_entered"]
+[connection signal="body_entered" from="DeadZone/StaticBody2D/Area2D" to="." method="_on_area_2d_body_entered"]

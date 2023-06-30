@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nts5x2qarh3c"
+path="res://.godot/imported/Two mask damage sound - Hollow Knight [cS7cLq4-ebY].mp3-8f0510fda0ecb1d6f45a349c6da14e54.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Two mask damage sound - Hollow Knight [cS7cLq4-ebY].mp3"
+dest_files=["res://.godot/imported/Two mask damage sound - Hollow Knight [cS7cLq4-ebY].mp3-8f0510fda0ecb1d6f45a349c6da14e54.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

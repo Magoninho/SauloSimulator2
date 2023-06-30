@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bcob73euutesq"]
+
+[node name="Cutscene" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -16,13 +16,13 @@ func _ready():
 	$Timer.start()
 	if day == 1:
 		$Day.text = "[center]The First Day"
-		$Hours.text = "- 72 Hours Remain -"
+		$Hours.text = "- 48 Hours Remain -"
 	elif day == 2:
 		$Day.text = "[center]The Second Day"
-		$Hours.text = "- 48 Hours Remain -"
+		$Hours.text = "- 24 Hours Remain -"
 	elif day == 3:
 		$Day.text = "[center]The Final Day"
-		$Hours.text = "- 24 Hours Remain -"
+		$Hours.text = "- The Day of ENEM -"
 
 
 func _on_timer_timeout():

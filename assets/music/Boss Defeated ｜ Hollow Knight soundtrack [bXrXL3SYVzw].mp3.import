@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://uij51yn5iic2"
+path="res://.godot/imported/Boss Defeated ｜ Hollow Knight soundtrack [bXrXL3SYVzw].mp3-2f51786de8dfac29e069c052f3217022.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Boss Defeated ｜ Hollow Knight soundtrack [bXrXL3SYVzw].mp3"
+dest_files=["res://.godot/imported/Boss Defeated ｜ Hollow Knight soundtrack [bXrXL3SYVzw].mp3-2f51786de8dfac29e069c052f3217022.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

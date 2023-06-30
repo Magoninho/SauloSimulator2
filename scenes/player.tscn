@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djq5rsotutysl" path="res://assets/sprites/saulo.png" id="2_3pjc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pw27x"]
-size = Vector2(64, 64)
+size = Vector2(36, 52)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2k3sr"]
 radius = 72.0
@@ -18,10 +18,11 @@ scale = Vector2(1.13676, 1.13676)
 texture = ExtResource("2_3pjc2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(2, 22)
 shape = SubResource("RectangleShape2D_pw27x")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_2k3sr")

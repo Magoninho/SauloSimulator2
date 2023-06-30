@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://u8lm8x4dieat"]
+
+[ext_resource type="Script" path="res://scenes/cos_platform.gd" id="1_bxw1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv2fl"]
+size = Vector2(112, 24)
+
+[node name="CosPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_bxw1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(56, 12)
+shape = SubResource("RectangleShape2D_hv2fl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 112.0
+offset_bottom = 24.0

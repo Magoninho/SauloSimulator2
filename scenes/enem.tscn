@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=3 uid="uid://b63s3k2ehl0nq"]
+
+[ext_resource type="Script" path="res://scenes/enem.gd" id="1_5m5go"]
+[ext_resource type="Texture2D" uid="uid://c5tyhd76s4gx3" path="res://assets/sprites/bgs/enem.jpeg" id="1_556l3"]
+[ext_resource type="Texture2D" uid="uid://djq5rsotutysl" path="res://assets/sprites/saulo.png" id="2_778y1"]
+[ext_resource type="AudioStream" uid="uid://dukmfkjak8bwr" path="res://assets/music/ambient-enem.mp3" id="3_1fj6q"]
+[ext_resource type="AudioStream" uid="uid://gkosb8ucoyq2" path="res://assets/music/Dreaming Harp - Sound effect [SPUpsb_L6Z4].mp3" id="5_xhttp"]
+
+[sub_resource type="Animation" id="Animation_grccj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 304)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("dream:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_d3k07"]
+resource_name = "main"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(7.1, 11.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(13.962, 13.962)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.1, 11.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 304), Vector2(432, 312)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.3, 11.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(12.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_boss"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("dream:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(6.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2iac"]
+_data = {
+"RESET": SubResource("Animation_grccj"),
+"main": SubResource("Animation_d3k07")
+}
+
+[node name="CanvasLayer" type="Node2D"]
+script = ExtResource("1_5m5go")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 808.0
+offset_bottom = 616.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_556l3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(432, 384)
+scale = Vector2(2.19412, 2.19412)
+texture = ExtResource("2_778y1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "main"
+libraries = {
+"": SubResource("AnimationLibrary_y2iac")
+}
+
+[node name="ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1fj6q")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 304)
+
+[node name="fade" type="ColorRect" parent="."]
+offset_right = 816.0
+offset_bottom = 624.0
+
+[node name="dream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xhttp")

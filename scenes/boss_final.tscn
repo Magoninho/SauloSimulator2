@@ -1,0 +1,672 @@
+[gd_scene load_steps=29 format=3 uid="uid://diu2syj228wqk"]
+
+[ext_resource type="Texture2D" uid="uid://djq5rsotutysl" path="res://assets/sprites/saulo.png" id="1_kkcqf"]
+[ext_resource type="Script" path="res://scripts/Player8dir.gd" id="1_lrtix"]
+[ext_resource type="Script" path="res://scenes/boss_final.gd" id="1_up5kj"]
+[ext_resource type="Script" path="res://scenes/Boss.gd" id="3_1b2pg"]
+[ext_resource type="Texture2D" uid="uid://b2yjngyjgo7wy" path="res://assets/sprites/enem.png" id="3_gcvxx"]
+[ext_resource type="PackedScene" uid="uid://dfdcbu7mqey1g" path="res://scenes/attack_eye.tscn" id="4_vxrdr"]
+[ext_resource type="Script" path="res://scripts/music_manager_boss.gd" id="6_nbfqw"]
+[ext_resource type="AudioStream" uid="uid://omynnli5k0ej" path="res://assets/music/Hollow Knight OST： Soul Master Theme [mvCDx-G6zJw].mp3" id="6_pdg70"]
+[ext_resource type="Script" path="res://scenes/start_carboxilas.gd" id="7_8nkp8"]
+[ext_resource type="PackedScene" uid="uid://bk8tonu41ae06" path="res://scenes/carboxila.tscn" id="7_c8ou3"]
+[ext_resource type="AudioStream" uid="uid://csk6vveoe51j2" path="res://assets/music/The Hollow Knights Scream Sound Effect. [kaSfdjPr8sg].mp3" id="7_jkuvt"]
+[ext_resource type="PackedScene" uid="uid://bd1oqeq605f4" path="res://scenes/obstacle.tscn" id="9_qu10v"]
+[ext_resource type="AudioStream" uid="uid://nts5x2qarh3c" path="res://assets/music/Two mask damage sound - Hollow Knight [cS7cLq4-ebY].mp3" id="12_sryqo"]
+[ext_resource type="AudioStream" uid="uid://bqikbhv68gs26" path="res://assets/music/Minecraft Steve OOF Sound Effect [9iMDchSHfy4].mp3" id="13_up4rg"]
+[ext_resource type="AudioStream" uid="uid://cbqbqe41vwbhm" path="res://assets/music/boss_explode (boss death) [0TKBzPgkows].mp3" id="15_l06hr"]
+[ext_resource type="AudioStream" uid="uid://uij51yn5iic2" path="res://assets/music/Boss Defeated ｜ Hollow Knight soundtrack [bXrXL3SYVzw].mp3" id="16_uk4jt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_youq1"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie1yn"]
+size = Vector2(16, 272)
+
+[sub_resource type="Animation" id="Animation_4dch4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, -88)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boss_sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boss_sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.496552, 0.496552)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Boss_sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SFX/damage:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../walls/StaticBody2D2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(272, 256)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../walls/StaticBody2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 240)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../walls/StaticBody2D3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(528, 240)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../walls/StaticBody2D4:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(536, 496)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("obstacles:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../SFX/last_scream:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../SFX/music:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../SFX/music:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../SFX/ending_theme:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6rybq"]
+resource_name = "attack"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("carboxilas")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_all_carboxilas"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v6puc"]
+resource_name = "attack2"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("obstacles:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2824, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s53gb"]
+resource_name = "attack3"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("obstacles:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2824, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uxtgy"]
+resource_name = "cutscene"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss_sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, -88), Vector2(400, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boss_sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10.5, 11.5, 11.8, 12.2, 12.6, 12.9, 13.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.387463, -0.387463, 0.289725, -0.579449, 0.289725, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boss_sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10.5, 11.5, 11.8, 13.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.496552, 0.496552), Vector2(0.496552, 0.496552), Vector2(0.333, 0.333), Vector2(0.597, 0.597), Vector2(0.496552, 0.496552)]
+}
+
+[sub_resource type="Animation" id="Animation_tavmv"]
+resource_name = "damage"
+length = 1.614
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss_sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0205634, 0.120124, 0.199049, 0.312007),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boss_sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.111962, 0.31256, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.607375, -0.607375, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SFX/damage:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_b6jav"]
+resource_name = "dead"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01832, 1.07297, 1.11495, 1.14761, 1.17093, 1.20825, 1.25024, 1.28289, 1.30622, 1.33888, 1.38086, 1.41352, 1.43684, 1.47416, 1.51615, 1.5488, 1.57213, 1.60945, 1.65144, 1.68409, 1.70742, 1.74474, 1.78672, 1.81938, 1.8427, 1.87536, 1.91734, 1.95, 1.97333, 2.01065, 2.05263, 2.08529, 2.10861, 2.14593, 2.17859, 2.20191, 2.23923, 2.28122, 2.31388, 2.3372, 2.37452, 2.41651, 2.44916, 2.47249, 2.50981, 2.55179, 2.58445, 2.60778, 2.64043, 2.68242, 2.71507, 2.7384, 2.77572, 2.8177, 2.85036, 2.87368, 2.97691),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(400, 120), Vector2(400, 80), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(392, 80), Vector2(409, 80), Vector2(400, 96), Vector2(416, 88), Vector2(408, -96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boss_sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.01832, 2.87442, 2.97671),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.607375, 0.607375, 2.79253]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SFX/last_scream:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.90168),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/music:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.01633),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-2.0, -80.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../SFX/music:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.01633),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../SFX/ending_theme:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.17521),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("..")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(13.8879),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_to_the_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_dgd4s"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 120), Vector2(400, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_sopvt"]
+resource_name = "shrink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../walls/StaticBody2D2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(272, 256), Vector2(264, 288)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../walls/StaticBody2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 240), Vector2(288, 240)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../walls/StaticBody2D3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(528, 240), Vector2(488, 240)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../walls/StaticBody2D4:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(536, 496), Vector2(536, 464)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pkvl7"]
+_data = {
+"RESET": SubResource("Animation_4dch4"),
+"attack": SubResource("Animation_6rybq"),
+"attack2": SubResource("Animation_v6puc"),
+"attack3": SubResource("Animation_s53gb"),
+"cutscene": SubResource("Animation_uxtgy"),
+"damage": SubResource("Animation_tavmv"),
+"dead": SubResource("Animation_b6jav"),
+"idle": SubResource("Animation_dgd4s"),
+"shrink": SubResource("Animation_sopvt")
+}
+
+[node name="BossFinal" type="Node2D"]
+script = ExtResource("1_up5kj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Player8dir" type="CharacterBody2D" parent="."]
+position = Vector2(384, 368)
+script = ExtResource("1_lrtix")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player8dir"]
+scale = Vector2(0.510638, 0.564706)
+texture = ExtResource("1_kkcqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player8dir"]
+shape = SubResource("RectangleShape2D_youq1")
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
+position = Vector2(272, 256)
+rotation = -1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D2"]
+position = Vector2(8, 136)
+shape = SubResource("RectangleShape2D_ie1yn")
+
+[node name="ColorRect" type="ColorRect" parent="walls/StaticBody2D2"]
+offset_right = 16.0
+offset_bottom = 272.0
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="walls"]
+position = Vector2(528, 240)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D3"]
+position = Vector2(8, 136)
+shape = SubResource("RectangleShape2D_ie1yn")
+
+[node name="ColorRect" type="ColorRect" parent="walls/StaticBody2D3"]
+offset_right = 16.0
+offset_bottom = 272.0
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
+position = Vector2(536, 496)
+rotation = 1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D4"]
+position = Vector2(8, 136)
+shape = SubResource("RectangleShape2D_ie1yn")
+
+[node name="ColorRect" type="ColorRect" parent="walls/StaticBody2D4"]
+offset_right = 16.0
+offset_bottom = 272.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+position = Vector2(256, 240)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/StaticBody2D"]
+position = Vector2(8, 136)
+shape = SubResource("RectangleShape2D_ie1yn")
+
+[node name="ColorRect" type="ColorRect" parent="walls/StaticBody2D"]
+offset_right = 16.0
+offset_bottom = 272.0
+
+[node name="Boss" type="Node2D" parent="."]
+script = ExtResource("3_1b2pg")
+
+[node name="Boss_sprite" type="Sprite2D" parent="Boss"]
+position = Vector2(400, -88)
+scale = Vector2(0.496552, 0.496552)
+texture = ExtResource("3_gcvxx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
+libraries = {
+"": SubResource("AnimationLibrary_pkvl7")
+}
+
+[node name="Cooldown" type="Timer" parent="Boss"]
+wait_time = 4.5
+
+[node name="attack_eye" parent="Boss" instance=ExtResource("4_vxrdr")]
+visible = false
+position = Vector2(400, 520)
+
+[node name="carboxilas" type="Node2D" parent="Boss"]
+script = ExtResource("7_8nkp8")
+
+[node name="Carboxila" parent="Boss/carboxilas" node_paths=PackedStringArray("player") instance=ExtResource("7_c8ou3")]
+rotation = -0.469651
+player = NodePath("../../../Player8dir")
+
+[node name="Carboxila2" parent="Boss/carboxilas" node_paths=PackedStringArray("player") instance=ExtResource("7_c8ou3")]
+position = Vector2(760, 336)
+rotation = -0.469651
+player = NodePath("../../../Player8dir")
+
+[node name="Carboxila3" parent="Boss/carboxilas" node_paths=PackedStringArray("player") instance=ExtResource("7_c8ou3")]
+position = Vector2(760, 336)
+rotation = -0.469651
+player = NodePath("../../../Player8dir")
+
+[node name="obstacles" type="Node2D" parent="Boss"]
+
+[node name="obstacle" parent="Boss/obstacles" groups=["obstacles"] instance=ExtResource("9_qu10v")]
+position = Vector2(896, 296)
+
+[node name="obstacle2" parent="Boss/obstacles" groups=["obstacles"] instance=ExtResource("9_qu10v")]
+position = Vector2(1088, 240)
+
+[node name="obstacle3" parent="Boss/obstacles" groups=["obstacles"] instance=ExtResource("9_qu10v")]
+position = Vector2(1304, 304)
+
+[node name="obstacle4" parent="Boss/obstacles" groups=["obstacles"] instance=ExtResource("9_qu10v")]
+position = Vector2(1528, 200)
+
+[node name="obstacle5" parent="Boss/obstacles" groups=["obstacles"] instance=ExtResource("9_qu10v")]
+position = Vector2(1760, 280)
+
+[node name="obstacle6" parent="Boss/obstacles" groups=["obstacles"] instance=ExtResource("9_qu10v")]
+position = Vector2(2040, 208)
+
+[node name="obstacle7" parent="Boss/obstacles" groups=["obstacles"] instance=ExtResource("9_qu10v")]
+position = Vector2(2360, 272)
+
+[node name="TimeBeforeScream" type="Timer" parent="."]
+wait_time = 12.0
+one_shot = true
+autostart = true
+
+[node name="SFX" type="Node" parent="."]
+script = ExtResource("6_nbfqw")
+
+[node name="music" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_pdg70")
+volume_db = -2.0
+autoplay = true
+
+[node name="scream" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_jkuvt")
+volume_db = 4.0
+
+[node name="damage" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("12_sryqo")
+
+[node name="player_damage" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_up4rg")
+
+[node name="last_scream" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("15_l06hr")
+
+[node name="ending_theme" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("16_uk4jt")
+
+[connection signal="animation_finished" from="Boss/AnimationPlayer" to="Boss" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Boss/Cooldown" to="Boss" method="_on_cooldown_timeout"]
+[connection signal="finished_attack" from="Boss/attack_eye" to="Boss" method="_on_attack_eye_finished_attack"]
+[connection signal="body_entered" from="Boss/carboxilas/Carboxila" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/carboxilas/Carboxila2" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/carboxilas/Carboxila3" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/obstacles/obstacle" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/obstacles/obstacle2" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/obstacles/obstacle3" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/obstacles/obstacle4" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/obstacles/obstacle5" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/obstacles/obstacle6" to="." method="_on_carboxila_body_entered"]
+[connection signal="body_entered" from="Boss/obstacles/obstacle7" to="." method="_on_carboxila_body_entered"]
+[connection signal="timeout" from="TimeBeforeScream" to="SFX" method="_on_timer_timeout"]

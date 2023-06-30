@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctadlwdvjpsk4"]
+
+[ext_resource type="Script" path="res://scenes/ending.gd" id="1_yi14v"]
+[ext_resource type="Texture2D" uid="uid://bfbegsmk2xu7i" path="res://assets/Lore/ending/0.png" id="2_06qtp"]
+[ext_resource type="AudioStream" uid="uid://dw1rnlwpfa5h4" path="res://assets/music/At_The_Fair.mp3" id="3_nfw31"]
+
+[node name="Ending" type="CanvasLayer"]
+script = ExtResource("1_yi14v")
+
+[node name="Slide" type="TextureRect" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("2_06qtp")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -1.0
+offset_top = 381.0
+offset_right = 799.0
+offset_bottom = 599.0
+
+[node name="Legend" type="RichTextLabel" parent="."]
+offset_left = 47.0
+offset_top = 417.0
+offset_right = 747.0
+offset_bottom = 577.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Once upon a time there was a hero. His name was Saulo. Saulo was facing a terrible fate: Ensino médio brasileiro."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="TimeBeforeChanging" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nfw31")
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimeBeforeChanging" to="." method="_on_time_before_changing_timeout"]

@@ -3,7 +3,8 @@ class_name Dialog
 
 @export_file("*.json") var dialog_file: String
 @export var NPC_name: String
-#var NPC_name = "npc1"
+
+signal dialog_finished
 
 var dialogs = null
 var current_dialog_id = -1
@@ -64,4 +65,5 @@ func reset():
 	dialogs = null
 
 func _on_timer_timeout():
+	dialog_finished.emit()
 	reset()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gkosb8ucoyq2"
+path="res://.godot/imported/Dreaming Harp - Sound effect [SPUpsb_L6Z4].mp3-67a68c1c8f1f7643ff2cb2e0da9c4d81.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Dreaming Harp - Sound effect [SPUpsb_L6Z4].mp3"
+dest_files=["res://.godot/imported/Dreaming Harp - Sound effect [SPUpsb_L6Z4].mp3-67a68c1c8f1f7643ff2cb2e0da9c4d81.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

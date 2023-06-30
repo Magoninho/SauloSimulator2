@@ -1,0 +1,231 @@
+[gd_scene load_steps=9 format=3 uid="uid://6e08wi6p8o4g"]
+
+[ext_resource type="PackedScene" uid="uid://bcob73euutesq" path="res://scenes/cutscenes/cutscene.tscn" id="1_4x1a4"]
+[ext_resource type="Texture2D" uid="uid://dkuky46ulii7c" path="res://scenes/cutscenes/images/colegio.png" id="2_d0d5j"]
+[ext_resource type="Script" path="res://scenes/cutscenes/colegio.gd" id="2_wydv6"]
+[ext_resource type="Texture2D" uid="uid://djq5rsotutysl" path="res://assets/sprites/saulo.png" id="3_j5wdc"]
+[ext_resource type="AudioStream" uid="uid://b8f28db1l3orm" path="res://assets/music/136_full_sharp-mind_0145_preview.mp3" id="5_cct21"]
+
+[sub_resource type="Animation" id="Animation_w04q4"]
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 488)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/RichTextLabel:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["i have to remember that this will be my last class before enem..."]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/RichTextLabel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.38235, 2.38235)]
+}
+
+[sub_resource type="Animation" id="Animation_1yuh0"]
+resource_name = "saulo_run"
+length = 14.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 10.5, 12),
+"transitions": PackedFloat32Array(1, 1e-05, 1, 1),
+"update": 0,
+"values": [Vector2(-112, 496), Vector2(240, 488), Vector2(240, 488), Vector2(400, 544)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.7, 1.1, 1.5, 1.9, 2.1, 2.3, 2.6, 3, 10.5, 10.8, 11.1, 11.4, 11.7, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1e-05, 1e-05, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.261799, 0.261799, -0.261799, 0.261799, -0.261799, 0.261799, -0.261799, 0.0, 0.0, 0.0, -0.261799, 0.261799, -0.261799, 0.261799, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/RichTextLabel:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.1, 4, 4.1, 5.9, 6, 6.1, 8, 10, 10.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/RichTextLabel:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6, 6.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["omg finally i'm here once more", "i have to remember that this will be my last class before enem...", "i have to remember that this will be my last class before enem..."]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/RichTextLabel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4, 4.1, 5.9, 6, 6.1, 10, 10.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 11.7, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.38235, 2.38235), Vector2(2.38235, 2.38235), Vector2(-6.63125e-07, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iir7x"]
+_data = {
+"RESET": SubResource("Animation_w04q4"),
+"saulo_run": SubResource("Animation_1yuh0")
+}
+
+[node name="Cutscene" instance=ExtResource("1_4x1a4")]
+script = ExtResource("2_wydv6")
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_iir7x")
+}
+
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("2_d0d5j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+position = Vector2(240, 488)
+rotation = -0.261799
+scale = Vector2(2.38235, 2.38235)
+texture = ExtResource("3_j5wdc")
+
+[node name="Panel" type="Panel" parent="." index="3"]
+visible = false
+offset_left = 96.0
+offset_top = 240.0
+offset_right = 400.0
+offset_bottom = 376.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" index="0"]
+visible = false
+layout_mode = 0
+offset_left = 6.0
+offset_right = 294.0
+offset_bottom = 104.0
+theme_override_font_sizes/normal_font_size = 24
+text = "i have to remember that this will be my last class before enem..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("5_cct21")
+autoplay = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

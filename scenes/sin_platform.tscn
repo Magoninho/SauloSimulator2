@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0m17bagbnv44"]
+
+[ext_resource type="Script" path="res://scripts/SinPlatform.gd" id="1_k0yky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv2fl"]
+size = Vector2(112, 24)
+
+[node name="SinPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_k0yky")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(56, 12)
+shape = SubResource("RectangleShape2D_hv2fl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 112.0
+offset_bottom = 24.0

@@ -1,10 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bogbmwnl5ug2q"]
+[gd_scene load_steps=3 format=3 uid="uid://bogbmwnl5ug2q"]
 
 [ext_resource type="PackedScene" uid="uid://vnlnxf7dn402" path="res://scenes/player.tscn" id="1_0ykhn"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_av0mu"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_av0mu")
 
 [node name="Player" parent="." instance=ExtResource("1_0ykhn")]
-position = Vector2(432, 296)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="fade" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -32.0
+offset_top = -24.0
+offset_right = 832.0
+offset_bottom = 616.0
+color = Color(0, 0, 0, 1)
